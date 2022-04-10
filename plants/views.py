@@ -8,11 +8,20 @@ from .serializers import PlantSerializer
 class PlantListView(APIView):
 
 	def get(self, _request):
-		plants = Plant.objects.all() # get everything from the plant in the db
-		print('PLANT 🏮', plants)
-		serialized_plants = PlantSerializer(plants, many=True) # Transforms data into python by running through serializer
-		print('SERIALIZED', serialized_plants.data)
-		return Response(serialized_plants.data, status=status.HTTP_200_OK) # return data and status code
+			plants = Plant.objects.all() # get everything from the plant in the db
+			# print('PLANT 🏮', plants)
+			serialized_plants = PlantSerializer(plants, many=True) # Transforms data into python by running through serializer
+			# print('SERIALIZED', serialized_plants.data)
+			return Response(serialized_plants.data, status=status.HTTP_200_OK) # return data and status code
+
+	def post(self, request):
+			print('REQUEST DATA', request.data )
+			plant_to_add = PlantSerializer(data=request.data)
+			if plant_to_add.is_valid():
+					plant_to_add.save()
+					print('PLANT TO ADD', plant_to_add)
+					return Response(plant_to_add.data, status=status.HTTP_201_CREATED)
+			return Response(plant_to_add.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
 class PlantDetailView(APIView):
 
@@ -23,8 +32,8 @@ class PlantDetailView(APIView):
 			raise NotFound(detail="🏮 can't find that plant")
 
 	def get(self, _request, pk):
-		plant = self.get_plant(pk=pk)
-		serialized_plant = PlantSerializer(plant)
-		return Response(serialized_plant.data, status=status.HTTP_200_OK)
+			plant = self.get_plant(pk=pk)
+			serialized_plant = PlantSerializer(plant)
+			return Response(serialized_plant.data, status=status.HTTP_200_OK)
 
 
