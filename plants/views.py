@@ -1,8 +1,8 @@
 from rest_framework.views import APIView  # class which decides the format of data to send back in json
-from rest_framework.response import response # method to send back response
+from rest_framework.response import Response # method to send back response
 from rest_framework import status # methods to send back status code
 
-from .models import Plants
+from .models import Plant
 from .serializers import PlantSerializer
 
 class PlantListView(APIView):
