@@ -24,7 +24,7 @@ class PlantDetailView(APIView):
 
 	def get(self, _request, pk):
 		plant = self.get_plant(pk=pk)
-		serialized_plant = PlantSerializer(show)
+		serialized_plant = PlantSerializer(plant)
 		return Response(serialized_plant.data, status=status.HTTP_200_OK)
 
 
