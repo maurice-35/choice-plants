@@ -25,15 +25,29 @@ class PlantListView(APIView):
 
 class PlantDetailView(APIView):
 
-	def get_plant(self, pk):  # getting an item from th db
-		try:
-			return Plant.objects.get(pk=pk)
-		except Plant.DoesNotExist:
-			raise NotFound(detail="🏮 can't find that plant")
+		def get_plant(self, pk):  # getting an item from th db
+			try:
+				return Plant.objects.get(pk=pk)
+			except Plant.DoesNotExist:
+				raise NotFound(detail="🏮 can't find that plant")
 
-	def get(self, _request, pk):
-			plant = self.get_plant(pk=pk)
-			serialized_plant = PlantSerializer(plant)
-			return Response(serialized_plant.data, status=status.HTTP_200_OK)
+		def get(self, _request, pk):
+				plant = self.get_plant(pk=pk)
+				serialized_plant = PlantSerializer(plant)
+				return Response(serialized_plant.data, status=status.HTTP_200_OK)
+
+		def delete(self, _request, pk):
+				plant_to_delete = self.get_plant(pk=pk)
+				plant_to_delete.delete()
+				return Response(status=status.HTTP_204_NO_CONTENT)
+
+		def put(self, request, pk):
+			plant_to_edit = self.get_plant(pk=pk)
+			updated_plant = PlantSerializer(plant_to_edit, data=request.data)
+			if updated_plant.is_valid():
+					updated_plant.save()
+					return Response(updated_plant.data, status=status.HTTP_202_ACCEPTED)
+			return Response(updated_plant.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+
 
 
