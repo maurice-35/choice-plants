@@ -2,6 +2,8 @@ from rest_framework.views import APIView  # class which decides the format of da
 from rest_framework.response import Response # method to send back response
 from rest_framework import status # methods to send back status code
 from rest_framework.exceptions import NotFound # methods to send back status code
+# from rest_framework import serializers import *
+# from rest_framework.views import PlantListView, PlantDetailView
 
 from .models import Plant
 from .serializers.common import PlantSerializer
