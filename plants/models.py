@@ -7,6 +7,10 @@ class Plant(models.Model):
 	description = models.CharField(max_length=300, default=None)
 	image = models.CharField(max_length=100, default=None)
 	owner= models.CharField(max_length=20, default=None)
+	category = models.ManyToManyField(
+		"category.Category",
+		related_name="plants"
+	)
 
 	def __str__(self):
 		return f"{self.name} - {self.image}"
