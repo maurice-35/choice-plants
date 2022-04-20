@@ -1,0 +1,16 @@
+[
+{
+  "model": "category.category",
+  "pk": 1,
+  "fields": {
+    "name": "Flowering"
+  }
+},
+{
+  "model": "category.category",
+  "pk": 2,
+  "fields": {
+    "name": "Non-flowering"
+  }
+}
+]
