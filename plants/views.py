@@ -2,23 +2,23 @@ from rest_framework.views import APIView  # class which decides the format of da
 from rest_framework.response import Response # method to send back response
 from rest_framework import status # methods to send back status code
 from rest_framework.exceptions import NotFound # methods to send back status code
-# from rest_framework import serializers import *
-# from rest_framework.views import PlantListView, PlantDetailView
+from rest_framework.permissions import IsAuthenticatedOrReadOnly # methods to send back permissions
 
 from .models import Plant
 from .serializers.common import PlantSerializer
 from .serializers.populated import PopulatedPlantSerializer
 
 class PlantListView(APIView):
+		permission_class = (IsAuthenticatedOrReadOnly, )
 
-	def get(self, _request):
+		def get(self, _request):
 			plants = Plant.objects.all() # get everything from the plant in the db
 			# print('PLANT 🏮', plants)
 			serialized_plants = PopulatedPlantSerializer(plants, many=True) # Transforms data into python by running through serializer
 			# print('SERIALIZED', serialized_plants.data)
 			return Response(serialized_plants.data, status=status.HTTP_200_OK) # return data and status code
 
-	def post(self, request):
+		def post(self, request):
 			print('REQUEST DATA', request.data )
 			plant_to_add = PlantSerializer(data=request.data)
 			if plant_to_add.is_valid():
