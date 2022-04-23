@@ -9,7 +9,7 @@ from .serializers.common import PlantSerializer
 from .serializers.populated import PopulatedPlantSerializer
 
 class PlantListView(APIView):
-		permission_class = (IsAuthenticatedOrReadOnly, )
+		permission_classes = (IsAuthenticatedOrReadOnly, )
 
 		def get(self, _request):
 			plants = Plant.objects.all() # get everything from the plant in the db
@@ -28,6 +28,7 @@ class PlantListView(APIView):
 			return Response(plant_to_add.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
 class PlantDetailView(APIView):
+		permission_classes = (IsAuthenticatedOrReadOnly, )
 
 		def get_plant(self, pk):  # getting an item from th db
 			try:
