@@ -3,10 +3,12 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.exceptions import NotFound
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.exceptions import PermissionDenied
 
-from comments.models import Comment
+# from comments.models import Comment
 
 from .serializers.common import CommentSerializer
+from .models import Comment
 
 class CommentListView(APIView):
 			permission_classes = {IsAuthenticated, }
@@ -25,6 +27,8 @@ class CommentDetailView(APIView):
 				try:
 					comment_to_delete = Comment.objects.get(pk=pk)
 				except Comment.DoesNotExist:
-						raise NotFound(detail="Comment not found")
+						raise NotFound()
+				if comment_to_delete.owner != request.user:
+						raise PermissionDenied()
 				comment_to_delete.delete() # deletes comment from table
 				return Response(status=status.HTTP_204_NO_CONTENT)
