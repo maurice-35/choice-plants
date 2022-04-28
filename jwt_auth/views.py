@@ -8,7 +8,7 @@ from django.conf import settings
 import jwt
 
 User = get_user_model()
-from .serializers import UserSerializer
+from .serializer import UserSerializer
 
 class RegisterView(APIView):
 

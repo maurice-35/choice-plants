@@ -1,7 +1,8 @@
 from comments.serializers.populated import PopulatedCommentSerializer
 from ..serializers.common import PlantSerializer
 from category.serializers.common import CategorySerializer
-from jwt_auth.serializers import UserSerializer
+# from .common import PlantSerializer
+from jwt_auth.serializer import UserSerializer
 
 
 class PopulatedPlantSerializer(PlantSerializer): # pass Plant object through
