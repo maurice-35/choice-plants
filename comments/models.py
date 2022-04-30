@@ -11,7 +11,7 @@ class Comment(models.Model):
 		)
 		owner = models.ForeignKey(
 			"jwt_auth.User", 
-			related_name="comment",
+			related_name="comments",
 			on_delete = models.CASCADE
 		)
 

@@ -1,4 +1,5 @@
 from django.db import models
+# from django.db.models.fields import CharField
 
 # Create your models here.
 
@@ -14,4 +15,4 @@ class Plant(models.Model):
 			on_delete = models.CASCADE
 		)
 	def __str__(self):
-		return f"{self.name} - {self.image}"
+		return f"{self.name} - {self.category}"
