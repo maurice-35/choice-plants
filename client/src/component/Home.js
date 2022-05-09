@@ -1,5 +1,5 @@
 import React from 'react'
-import { Carousel } from 'react-bootstrap'
+import Carousel from 'react-bootstrap/Carousel'
 
 const Home = () => {
 
@@ -9,7 +9,7 @@ const Home = () => {
         <Carousel>
           <Carousel.Item interval={1000}>
             <img
-              className="d-block w-100"
+              className="d-flex carousel justify-content-md-between align-items-md-center"
               src="holder.js/800x400?text=First slide&bg=373940"
               alt="First slide"
             />
@@ -21,7 +21,7 @@ const Home = () => {
           <Carousel.Item interval={500}>
             <img
               className="d-block w-100"
-              src="holder.js/800x400?text=Second slide&bg=282c34"
+              src="https://res.cloudinary.com/doe5zwesw/image/upload/"
               alt="Second slide"
             />
             <Carousel.Caption>
