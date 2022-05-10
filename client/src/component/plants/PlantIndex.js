@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Card, CardGroup, Row } from 'react-bootstrap'
+import PlantCard from './PlantCard'
 
 
 const PlantIndex = () => {
 	const [plants, setPlants] = useState([])
+	const [hasError, setHasError] = useState(false)
 
 	useEffect(() => {
 		const getData = async () => {
@@ -14,6 +16,7 @@ const PlantIndex = () => {
 				setPlants(data)
 			} catch (err) {
 				console.log(err)
+				setHasError(true)
 			}
 		}
 		getData()
@@ -21,23 +24,24 @@ const PlantIndex = () => {
 
 	return (
 		<section className="section">
-      <div className="container">
-			<Row className="grid-container">
-				<CardGroup>
-					<Card>
-						{plants.map(plant => {
-							return(
-										<>
-									<Card.Body key={plant._id}>
-										<Card.Title>{plant.name}</Card.Title>
-									</Card.Body><Card.Img variant="top" src={plant.image} alt={plant.name} /></>
-							)
-						})}
-					</Card>
-				</CardGroup>
-			</Row>
-      </div>
-    </section>
+			<div className="container">
+				<Row className="grid-container">
+					{plants ?
+					<CardGroup>
+						<Card id="plant">
+							{plants.map(plant => (
+								<PlantCard key={plant.id} {...plant} />
+							))}
+						</Card>
+					</CardGroup>
+					:
+					<h2 className="index">
+								{hasError ? 'Please wait' : '...loading'}
+							</h2>
+						}
+				</Row>
+			</div>
+		</section>
 	)
 }
 

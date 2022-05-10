@@ -4,7 +4,6 @@ import { Nav } from 'react-bootstrap'
 
 const Navigation = () => {
 
-
 	return (
 		<>
 			<Nav className="justify-content-center" activeKey="/home">
