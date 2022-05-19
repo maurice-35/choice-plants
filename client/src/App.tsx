@@ -4,14 +4,14 @@ import { Card, CardGroup, Row } from "react-bootstrap";
 
 const App = () => {
   useEffect(() => {
-    const getData = async () => {
-      try {
-        const { data } = await axios.get("/api/plants/");
-        console.log("DATA", data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
+    const getData = async () => { 
+				try {
+				const	{ data } = await axios.get('/api/plants/')
+					console.log(data)
+				} catch(err) {
+					console.log(err)
+				}
+			}
     getData();
   }, []);
 
