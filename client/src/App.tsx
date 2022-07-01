@@ -1,13 +1,16 @@
-import React, { useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { Card, CardGroup, Row } from "react-bootstrap";
 
 const App = () => {
+	const [plant, setPlant] = useState([] as any[])
+
 	useEffect(() => {
 		const getData = async () => {
 			try {
 				const { data } = await axios.get('/api/plants/')
-				console.log(data)
+				console.log('DATA', data)
+				setPlant(data)
 			} catch (err) {
 				console.log(err)
 			}
@@ -21,7 +24,11 @@ const App = () => {
 				<Row className="grid-container">
 					<CardGroup>
 						<Card id="plant">
-							<h1>Hello World</h1>
+							<div>
+								{plant.map(item => {
+									return <p>{item.name} {item.image}</p>
+							})}
+							</div>
 						</Card>
 					</CardGroup>
 				</Row>
