@@ -1,40 +1,19 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-import { Card, CardGroup, Row } from "react-bootstrap";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import PlantIndex from "./component/plants/PlantIndex"
+import Home from "./Home";
+import Navigation from "./component/common/Navigation";
 
 const App = () => {
-	const [plant, setPlant] = useState([] as any[])
-
-	useEffect(() => {
-		const getData = async () => {
-			try {
-				const { data } = await axios.get('/api/plants/')
-				console.log('DATA', data)
-				setPlant(data)
-			} catch (err) {
-				console.log(err)
-			}
-		}
-		getData();
-	}, []);
-
-	return (
-		<section className="section">
-			<div className="container">
-				<Row className="grid-container">
-					<CardGroup>
-						<Card id="plant">
-							<div>
-								{plant.map(item => {
-									return <p>{item.name} {item.image}</p>
-							})}
-							</div>
-						</Card>
-					</CardGroup>
-				</Row>
-			</div>
-		</section>
-	);
+  return (
+    <BrowserRouter>
+      <Navigation />
+      <Routes>
+        <Route path="/plants" element={<PlantIndex />} />
+        <Route path="/Home" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
+  );
 };
 
 export default App;
