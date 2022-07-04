@@ -1,4 +1,16 @@
+
 h1 {
   text-transform: uppercase;
   color: #2d4f
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.navbar-brand {
+  font-size: 3em;
+  margin-right: 0.75em;
+  margin-left: 0.25em;
 }

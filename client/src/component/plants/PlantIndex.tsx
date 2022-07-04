@@ -26,7 +26,10 @@ const PlantIndex = () => {
 						<Card id="plant">
 							<div>
 								{plant.map(item => {
-									return <p key={item.id}>{item.name} {item.image}</p>
+									return <>
+									<p key={item.id}>{item.name}</p>
+									<img src={item.image} alt={item.name}></img>
+									</>
 							})}
 							</div>
 						</Card>
