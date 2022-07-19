@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Card, CardGroup, Row } from "react-bootstrap";
 
 const PlantIndex = () => {
 	const [plant, setPlant] = useState([] as any[])
