@@ -21,9 +21,9 @@ const PlantIndex = () => {
 	return (
 		<section className="section">
 			<div className="container">
-				<Row className="grid-container">
-					<CardGroup>
-						<Card id="plant">
+				<div className="grid-container">
+					<div className="group">
+						<div id="plant">
 							<div>
 								{plant.map(item => {
 									return <>
@@ -32,9 +32,9 @@ const PlantIndex = () => {
 									</>
 							})}
 							</div>
-						</Card>
-					</CardGroup>
-				</Row>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 	);
