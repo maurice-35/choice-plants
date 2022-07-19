@@ -7,7 +7,7 @@ const PlantIndex = () => {
 	useEffect(() => {
 		const getData = async () => {
 			try {
-				const { data } = await axios.get('/api/plants/')
+				const { data } = await axios.get('/api/plants')
 				console.log('DATA', data)
 				setPlant(data)
 			} catch (err) {
@@ -26,7 +26,7 @@ const PlantIndex = () => {
 							<div>
 								{plant.map(item => {
 									return <>
-									<p key={item.id}>{item.name}</p>
+									<div key={item.id}>{item.name}</div>
 									<img src={item.image} alt={item.name}></img>
 									</>
 							})}
