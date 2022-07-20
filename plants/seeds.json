@@ -1,62 +1,67 @@
 [
 {
   "model": "plants.plant",
-  "pk": 1,
-  "fields": {
-    "name": "African Violet",
-    "description": "African violet care information guide: Belonging to the Saintpaulia Genus with many species. Growing conditions, possible problems, pictures and description.",
-    "image": "https://res.cloudinary.com/doe5zwesw/image/upload/",
-    "owner": "admin"
-  }
-},
-{
-  "model": "plants.plant",
   "pk": 2,
   "fields": {
-    "name": "Christmas Cactus",
-    "description": "Schlumbergera truncata and S. × buckleyi are the two species of epiphytic cacti that are both commonly known as Christmas cactus. So called because they flower from late November to late January, they give a wonderful Christmas display or are an ideal Christmas gift.",
-    "image": "https://res.cloudinary.com/doe5zwesw/image/upload/",
-    "owner": "admin"
+    "name": "Hibiscus",
+    "description": "Beautiful indoor plant.",
+    "image": "https://res.cloudinary.com/doe5zwesw/image/upload/v1650742726/p7_axkolv.webp",
+    "owner": 2,
+    "category": [
+      2
+    ]
   }
 },
 {
   "model": "plants.plant",
   "pk": 3,
   "fields": {
-    "name": "Coral Cactus",
-    "description": "The Coral cactus is much as the name states in one sense and not in another. It's similar looking to coral but not an actual cactus.",
-    "image": "https://res.cloudinary.com/doe5zwesw/image/upload/",
-    "owner": "admin"
+    "name": "Busy Lizzie",
+    "description": "Grown for their attractive blooms outdoors (just about everywhere) and indoors when given enough bright light.",
+    "image": "https://res.cloudinary.com/doe5zwesw/image/upload/v1649620127/p-6_jyyz5l.jpg",
+    "owner": 1,
+    "category": [
+      1
+    ]
   }
 },
 {
   "model": "plants.plant",
   "pk": 4,
   "fields": {
-    "name": "Easter Cactus",
-    "description": "Tropical cactus that requires a certain amount of regular water in order to survive.",
-    "image": "https://res.cloudinary.com/doe5zwesw/image/upload/",
-    "owner": "admin"
+    "name": "African Violet",
+    "description": "African violet: Belonging to the Saintpaulia Genus with many species.",
+    "image": "https://res.cloudinary.com/doe5zwesw/image/upload/v1658311607/A-Violet_r1xob7.webp",
+    "owner": 2,
+    "category": [
+      1
+    ]
   }
 },
 {
   "model": "plants.plant",
-  "pk": 5,
+  "pk": 6,
   "fields": {
-    "name": "Busy Lizzie",
-    "description": "Grown for their attractive blooms outdoors (just about everywhere) and indoors when given enough bright light.",
-    "image": "https://res.cloudinary.com/doe5zwesw/image/upload/v1649620127/p-6_jyyz5l.jpg",
-    "owner": "Jay"
+    "name": "Christmas Cactus",
+    "description": "Schlumbergera truncata and S. × buckleyi are the two species of epiphytic cacti that are both commonly known as Christmas cactus. So called because they flower from late November to late January, they give a wonderful Christmas display or are an ideal Christmas gift.",
+    "image": "https://gardenerspath.com/wp-content/uploads/2020/12/How-to-Make-a-Christmas-Cactus-Bloom-Cover.jpg.webp",
+    "owner": 1,
+    "category": [
+      2
+    ]
   }
 },
 {
   "model": "plants.plant",
   "pk": 7,
   "fields": {
-    "name": "MORNING ROSE",
-    "description": "Brightly coloured plant.",
-    "image": "https://res.cloudinary.com/doe5zwesw/image/upload/v1649620127/p-6_jyyz5l.jpg",
-    "owner": "admin"
+    "name": "Sunflower",
+    "description": "Brightly coloured plant..",
+    "image": "https://res.cloudinary.com/doe5zwesw/image/upload/v1658311869/Sun-F_a1bx78.jpg",
+    "owner": 1,
+    "category": [
+      1
+    ]
   }
 }
 ]
