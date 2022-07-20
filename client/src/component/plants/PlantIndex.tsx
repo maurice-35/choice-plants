@@ -21,17 +21,14 @@ const PlantIndex = () => {
 		<section className="section">
 			<div className="container">
 				<div className="grid-container">
-					<div className="group">
 						<div id="plant">
-							<div>
-								{plant.map(item => {
-									return <>
-									<div key={item.id}>{item.name}</div>
-									<img src={item.image} alt={item.name}></img>
-									</>
-							})}
+							<div className="group">
+								{plant.map(item => (
+									<div key={item.id}>{item.name}
+									<img src={item.image} alt={item.name} />
+									</div>
+							))}
 							</div>
-						</div>
 					</div>
 				</div>
 			</div>
